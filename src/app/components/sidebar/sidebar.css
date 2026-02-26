@@ -1,0 +1,29 @@
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 350px;            /* Ancho fijo para el sidebar */
+}
+
+.user-card {
+  background-color: #2d2444; 
+  padding: 20px 25px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #6a1b9a;
+}
+
+.user-card span {
+  color: #d1c4e9;
+  font-size: 1.3rem;
+  font-weight: 600;
+}

@@ -1,0 +1,13 @@
+.main-container {
+  padding-top: 20px;
+  padding-left: 50px; /* Separación del menú de la izquierda */
+}
+
+h1 {
+  font-size: 4.5rem;    /* Tamaño extra grande */
+  font-weight: 800;     /* Muy negrita */
+  color: #d1c4e9;       /* Color lila claro */
+  margin: 0;
+  letter-spacing: -1px; /* Letras un poquito más juntas para estilo moderno */
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}

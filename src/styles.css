@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+/* Esto pone el fondo oscuro en toda la página */
+body {
+  margin: 0;
+  background-color: #0d071c; /* El morado oscuro de la imagen */
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
