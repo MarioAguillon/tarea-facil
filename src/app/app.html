@@ -1,10 +1,19 @@
-<div class="main-layout">
-  <app-header></app-header>
+<app-header></app-header>
 
-  <div class="body-container">
-    <app-sidebar></app-sidebar>
-    <div class="main-view">
-      <app-main-content></app-main-content>
-    </div>
-  </div>
-</div>
+<main class="body-container">
+  <ul id="usuarios" style="list-style: none; padding: 0;">
+    @for (user of usuarios; track user.id) {
+      <li>
+        <app-sidebar 
+          [id]="user.id"
+          [nombre]="user.nombre"
+          [avatar]="user.avatar"
+          [estaSeleccionado]="user.id === idSeleccionado"
+          (seleccion)="alElegirUsuario($event)">
+        </app-sidebar>
+      </li>
+    }
+  </ul>
+
+  <app-main-content [nombre]="usuarioSeleccionado.nombre"></app-main-content>
+</main>
