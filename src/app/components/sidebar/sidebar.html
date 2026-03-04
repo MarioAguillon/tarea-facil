@@ -1,4 +1,11 @@
-<div class="user-card" [class.active]="estaSeleccionado" (click)='alHacerClic()'>
-  <img [src]="rutaImagen" [alt]="nombre">
-  <span>{{ nombre }}</span>
+<div>
+  <button 
+    type="button" 
+    [class.active]="estaSeleccionado" 
+    (mouseenter)="alSeleccionarUsuario()">
+    
+    <img [src]="rutaImagen" [alt]="nombre">
+    
+    <span>{{ nombre }}</span>
+  </button>
 </div>

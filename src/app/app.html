@@ -1,18 +1,43 @@
 <app-header></app-header>
 
-<main class="body-container">
-  <ul id="usuarios" style="list-style: none; padding: 0;">
-    @for (user of usuarios; track user.id) {
-      <li>
-        <app-sidebar 
-          [id]="user.id"
-          [nombre]="user.nombre"
-          [avatar]="user.avatar"
-          [estaSeleccionado]="user.id === idSeleccionado"
-          (seleccion)="alElegirUsuario($event)">
-        </app-sidebar>
-      </li>
-    }
+<main>
+  <ul id="usuarios">
+    <li>
+      <app-sidebar 
+        [id]="usuarios[0].id"
+        [avatar]="usuarios[0].avatar"
+        [nombre]="usuarios[0].nombre"
+        [estaSeleccionado]="usuarios[0].id === idUsuarioSeleccionado"
+        (seleccion)="alSeleccionarUsuario($event)">
+      </app-sidebar>
+    </li>
+    <li>
+      <app-sidebar 
+        [id]="usuarios[1].id"
+        [avatar]="usuarios[1].avatar"
+        [nombre]="usuarios[1].nombre"
+        [estaSeleccionado]="usuarios[1].id === idUsuarioSeleccionado"
+        (seleccion)="alSeleccionarUsuario($event)">
+      </app-sidebar>
+    </li>
+    <li>
+      <app-sidebar 
+        [id]="usuarios[2].id"
+        [avatar]="usuarios[2].avatar"
+        [nombre]="usuarios[2].nombre"
+        [estaSeleccionado]="usuarios[2].id === idUsuarioSeleccionado"
+        (seleccion)="alSeleccionarUsuario($event)">
+      </app-sidebar>
+    </li>
+    <li>
+      <app-sidebar 
+        [id]="usuarios[3].id"
+        [avatar]="usuarios[3].avatar"
+        [nombre]="usuarios[3].nombre"
+        [estaSeleccionado]="usuarios[3].id === idUsuarioSeleccionado"
+        (seleccion)="alSeleccionarUsuario($event)">
+      </app-sidebar>
+    </li>
   </ul>
 
   <app-main-content [nombre]="usuarioSeleccionado.nombre"></app-main-content>

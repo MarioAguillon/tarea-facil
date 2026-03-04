@@ -1,13 +1,14 @@
-import { Component, Input } from '@angular/core'; // <-- Revisa que diga 'Input'
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-main-content',
   standalone: true,
+  imports: [],
   templateUrl: './main-content.html',
-  styleUrl: './main-content.css',
-  imports: [] 
+  styleUrl: './main-content.css'
 })
 export class MainContent {
-  // Sin esta línea, el HTML fallará al intentar leer {{ nombre }}
-  @Input({ required: true }) nombre!: string; 
+  // El profesor usa @Input para recibir datos desde afuera
+  // La exclamación '!' indica que el valor llegará después (cuando el mouse pase por encima)
+  @Input({ required: true }) nombre!: string;
 }
