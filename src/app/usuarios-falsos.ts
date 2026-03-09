@@ -22,11 +22,11 @@ export const USUARIOS_FALSOS = [
   {
     id: 'u5',
     nombre: 'Pamela Chan',
-    avatar: 'mujer1.jpg', // Reutilizando para el ejemplo
+    avatar: 'mujer3.jpg', // Reutilizando para el ejemplo
   },
   {
     id: 'u6',
     nombre: 'Adrián Serbio',
-    avatar: 'hombre1.jpg',
+    avatar: 'hombre3.jpg',
   },
 ];

@@ -41,3 +41,10 @@ main {
     text-align: left;
   }
 }
+
+#textoCondicional {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #a1a1a1;
+  margin-top: 2rem;
+}

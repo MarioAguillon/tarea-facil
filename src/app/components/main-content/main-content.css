@@ -1,13 +1,65 @@
-.main-container {
-  padding-top: 20px;
-  padding-left: 50px; /* Separación del menú de la izquierda */
+#tareas {
+  padding: 1rem;
+  border-radius: 8px;
+  max-height: 60vh;
+  overflow: auto;
+  background-color: #3a2c54; /* El morado oscuro del fondo */
 }
 
-h1 {
-  font-size: 4.5rem;    /* Tamaño extra grande */
-  font-weight: 800;     /* Muy negrita */
-  color: #d1c4e9;       /* Color lila claro */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+h2 {
   margin: 0;
-  letter-spacing: -1px; /* Letras un poquito más juntas para estilo moderno */
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  font-size: 0.9rem;
+  width: 60%;
+  text-wrap: balance;
+}
+
+menu {
+  margin: 0;
+  padding: 0;
+}
+
+menu button {
+  font: inherit;
+  cursor: pointer;
+  background-color: #9965dd; /* Morado del botón */
+  border-radius: 4px;
+  border: none;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.9rem;
+  color: white;
+}
+
+menu button:hover,
+menu button:active {
+  background-color: #a565dd;
+}
+
+ul {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 50vh;
+  overflow: auto;
+}
+
+/* Responsividad para pantallas más grandes */
+@media (min-width: 768px) {
+  h2 {
+    font-size: 1.25rem;
+  }
+  
+  menu {
+    width: auto;
+  }
 }

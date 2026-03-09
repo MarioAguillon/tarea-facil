@@ -1,5 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
+// Definimos el molde del usuario
+interface Usuarios {
+  id: string;
+  avatar: string;
+  nombre: string;
+}
+
 @Component({
   selector: 'app-sidebar',
   standalone: true,
@@ -8,22 +15,20 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './sidebar.css'
 })
 export class Sidebar {
-  // Datos recibidos desde el componente padre (App)
-  @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) nombre!: string;
-  @Input({ required: true }) id!: string;
+  // Recibimos el objeto usuario basado en la interface
+  @Input({ required: true }) usuario!: Usuarios;
+  
+  // Recibimos el estado de selección para el CSS
   @Input({ required: true }) estaSeleccionado!: boolean;
 
-  // Emisor para avisar al padre qué usuario se eligió
   @Output() seleccion = new EventEmitter<string>();
 
-  // Genera la ruta de la imagen
+  // Ruta dinámica para las fotos en public/img/avatar/
   get rutaImagen() {
-    return 'img/avatar/' + this.avatar;
+    return 'img/avatar/' + this.usuario.avatar;
   }
 
-  // Función que se dispara al interactuar con el usuario
   alSeleccionarUsuario() {
-    this.seleccion.emit(this.id);
+    this.seleccion.emit(this.usuario.id);
   }
 }
