@@ -6,7 +6,7 @@
       <li>
         <app-sidebar 
           [usuario]="u" 
-          [estaSeleccionado]="u.id === idUsuarioSeleccionado"
+          [estaSeleccionado]="u.id === usuarioSeleccionado?.id"
           (seleccion)="alSeleccionarUsuario($event)">
         </app-sidebar>
       </li>
@@ -14,7 +14,10 @@
   </ul>
 
   @if (usuarioSeleccionado) {
-    <app-main-content [nombre]="usuarioSeleccionado.nombre" />
+    <app-main-content
+      [idUsuario]="usuarioSeleccionado.id"
+      [nombre]="usuarioSeleccionado.nombre"
+    />
   } @else {
     <p id="textoCondicional">Selecciona un usuario de la lista</p>
   }

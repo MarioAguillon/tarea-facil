@@ -1,11 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
+import { type Usuarios } from './usuario.model';
 // Definimos el molde del usuario
-interface Usuarios {
-  id: string;
-  avatar: string;
-  nombre: string;
-}
 
 @Component({
   selector: 'app-sidebar',
