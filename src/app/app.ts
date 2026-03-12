@@ -1,13 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { Header } from './components/header/header';
 import { Sidebar } from './components/sidebar/sidebar';
-import { MainContent } from './components/main-content/main-content';
+import { MainContentComponent } from './components/main-content/main-content';
 import { USUARIOS_FALSOS } from './usuarios-falsos';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Header, Sidebar, MainContent], // El profesor los llama Encabezado, Usuario, Tareas
+  imports: [Header, Sidebar, MainContentComponent], // El profesor los llama Encabezado, Usuario, Tareas
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

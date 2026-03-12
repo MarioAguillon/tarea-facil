@@ -1,20 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainContent } from './main-content';
+// Cambiamos MainContent por MainContentComponent
+import { MainContentComponent } from './main-content'; 
 
-describe('MainContent', () => {
-  let component: MainContent;
-  let fixture: ComponentFixture<MainContent>;
+describe('MainContentComponent', () => {
+  let component: MainContentComponent;
+  let fixture: ComponentFixture<MainContentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MainContent]
+      // Aquí también debe decir MainContentComponent
+      imports: [MainContentComponent] 
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MainContent);
+    fixture = TestBed.createComponent(MainContentComponent);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges(); // Es mejor usar detectChanges para pruebas básicas
   });
 
   it('should create', () => {
