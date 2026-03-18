@@ -1,29 +1,24 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { type Usuarios } from './usuario.model';
-// Definimos el molde del usuario
+import { Tarjeta } from '../tarjeta/tarjeta'; // <--- IMPORTA AQUÍ
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [],
+  imports: [Tarjeta], // <--- AÑADE AQUÍ
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css'
 })
 export class Sidebar {
-  // Recibimos el objeto usuario basado en la interface
-  @Input({ required: true }) usuario!: Usuarios;
-  
-  // Recibimos el estado de selección para el CSS
-  @Input({ required: true }) estaSeleccionado!: boolean;
+  @Input({ required: true }) usuario!: { id: string; nombre: string; avatar: string };
+  @Input({ required: true }) seleccionado!: boolean; // <--- ASEGÚRATE QUE SE LLAME ASÍ
+  @Output() seleccionar = new EventEmitter<string>();
 
-  @Output() seleccion = new EventEmitter<string>();
-
-  // Ruta dinámica para las fotos en public/img/avatar/
-  get rutaImagen() {
-    return 'img/avatar/' + this.usuario.avatar;
-  }
+ get rutaImagen() {
+  // Entramos a 'img', luego a 'avatar' y buscamos la foto
+  return 'img/avatar/' + this.usuario.avatar;
+}
 
   alSeleccionarUsuario() {
-    this.seleccion.emit(this.usuario.id);
+    this.seleccionar.emit(this.usuario.id);
   }
 }

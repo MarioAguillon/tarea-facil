@@ -1,7 +1,7 @@
 <div class="fondo" (click)="alCancelar()"></div>
 <dialog open>
   <h2>Agregar Tarea</h2>
-  <form>
+  <form (ngSubmit)="alEnviar()">
     <p>
       <label for="titulo">Título</label>
       <input type="text" id="titulo" name="titulo" [(ngModel)]="tituloIngresado"/>

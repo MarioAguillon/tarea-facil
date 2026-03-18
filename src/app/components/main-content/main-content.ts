@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { TareaComponent } from '../tarea/tarea';
-import { NuevaTarea } from '../nueva-tarea/nueva-tarea'; // Asegúrate que la ruta sea correcta
+import { NuevaTarea } from '../nueva-tarea/nueva-tarea'; 
+import { NuevaTareaInfo } from '../tarea/tarea.model';
 
 @Component({
   selector: 'app-main-content',
@@ -14,9 +15,7 @@ export class MainContentComponent {
   @Input({ required: true }) nombre!: string;
   estaAgregandoTareaNueva = false;
 
-
-
-  // Tu lista de tareas (asegúrate de que los nombres de los campos coincidan)
+  // Tu lista de tareas completa
   tareas = [
     {
       id: 't1',
@@ -41,12 +40,10 @@ export class MainContentComponent {
     },
   ];
 
-  // El "get" para filtrar las tareas que se muestran por usuario
   get tareasUsuarioSeleccionado() {
     return this.tareas.filter((tarea) => tarea.idUsuario === this.idUsuario);
   }
 
-  // EL MÉTODO PARA ELIMINAR (Debe estar dentro de esta misma clase)
   alCompletarTarea(id: string) {
     this.tareas = this.tareas.filter((tarea) => tarea.id !== id);
   }
@@ -55,8 +52,19 @@ export class MainContentComponent {
     this.estaAgregandoTareaNueva = true;
   }
 
-
   alCancelarTareaNueva(){
-    this.estaAgregandoTareaNueva = false
+    this.estaAgregandoTareaNueva = false;
   }
-}
+
+  alAgregarTarea(infoDeTarea: NuevaTareaInfo) {
+    this.tareas.unshift({
+      id: new Date().getTime().toString(),
+      titulo: infoDeTarea.titulo,
+      resumen: infoDeTarea.resumen,
+      expira: infoDeTarea.fecha,
+      idUsuario: this.idUsuario 
+    });
+
+    this.estaAgregandoTareaNueva = false;
+  }
+} // <--- ESTA ES LA ÚNICA LLAVE QUE CIERRA TODO EL COMPONENTE

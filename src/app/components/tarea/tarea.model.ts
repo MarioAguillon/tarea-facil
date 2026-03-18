@@ -6,3 +6,10 @@ export interface Tarea {
   resumen: string;
   expira: string;
 }
+
+// NUEVA INTERFAZ: El molde para los datos del formulario
+export interface NuevaTareaInfo {
+  titulo: string;
+  resumen: string;
+  fecha: string;
+}
