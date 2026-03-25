@@ -1,23 +1,23 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Tarea } from './tarea.model';
+import { Component, inject, Input } from '@angular/core';
+import { Tarea } from './tarea.model'; 
+import { TareasService } from '../../services/tareas.service';
 import { Tarjeta } from '../tarjeta/tarjeta';
-
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-tarea',
   standalone: true,
-  imports: [Tarjeta],
+  imports: [Tarjeta, DatePipe],
   templateUrl: './tarea.html',
-  styleUrl: './tarea.css'
+  styleUrl: './tarea.css',
 })
 export class TareaComponent {
-  // 2. Agregamos el Input requerido para recibir el objeto tarea completo
   @Input({ required: true }) tarea!: Tarea;
-  @Output() terminada = new EventEmitter<string>();
 
-  // En tarea.ts
-alCompletarTarea() {
-  // Esta línea es la que "activa" el (terminada) del padre
-  this.terminada.emit(this.tarea.id); 
-}
+  private tareasService = inject(TareasService);
+
+  alCompletarTarea() {
+    // El botón en el HTML debe llamar a este método
+    this.tareasService.eliminarTarea(this.tarea.id);
+  }
 }

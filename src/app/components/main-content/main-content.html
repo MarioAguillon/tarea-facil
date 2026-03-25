@@ -1,10 +1,8 @@
 @if (estaAgregandoTareaNueva) {
   <app-nueva-tarea 
-    (cancelar)="alCancelarTareaNueva()" 
-    (agregar)="alAgregarTarea($event)" 
-  />
+    [idUsuario]="idUsuario" 
+    (cerrar)="alCerrarTareaNueva()" />
 }
-
 
 <section id="tareas">
   <header>
@@ -19,7 +17,7 @@
       <li>
         <app-tarea 
           [tarea]="tarea" 
-          (terminada)="alCompletarTarea($event)" 
+          
         />
       </li>
     }

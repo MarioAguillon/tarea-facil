@@ -1,33 +1,35 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NuevaTareaInfo } from '../tarea/tarea.model'; //
-
+import { TareasService } from '../../services/tareas.service';
 
 @Component({
   selector: 'app-nueva-tarea',
-  standalone: true, // <--- AGREGA ESTA LÍNEA
+  standalone: true,
   imports: [FormsModule],
   templateUrl: './nueva-tarea.html',
   styleUrl: './nueva-tarea.css',
 })
 export class NuevaTarea { 
-  @Output() cancelar = new EventEmitter<void>();
-  @Output() agregar = new EventEmitter<NuevaTareaInfo>();
+  @Input({ required: true }) idUsuario!: string;
+  @Output() cerrar = new EventEmitter<void>();
 
   tituloIngresado = '';
   resumenIngresado = '';
   fechaIngresado = '';
 
+  private tareasService = inject(TareasService);
+
   alCancelar() {
-    this.cancelar.emit();
+    this.cerrar.emit();
   }
 
-  // ESTE MÉTODO DEBE IR AQUÍ ADENTRO
   alEnviar() {
-    this.agregar.emit({
+    this.tareasService.agregarTarea({
       titulo: this.tituloIngresado,
       resumen: this.resumenIngresado,
       fecha: this.fechaIngresado
-    });
+    }, this.idUsuario);
+
+    this.cerrar.emit(); // Esto cierra el formulario automáticamente
   } 
-} // <--- ESTA LLAVE CIERRA LA CLASE Y DEBE SER LA ÚLTIMA
+}
